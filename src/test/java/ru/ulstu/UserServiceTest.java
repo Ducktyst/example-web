@@ -1,8 +1,9 @@
+package ru.ulstu;
+
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.powermock.api.mockito.PowerMockito;
-import ru.ulstu.UserService;
 import ru.ulstu.entity.User;
 import ru.ulstu.exception.UserNotValidException;
 import ru.ulstu.persistence.FileStore;
