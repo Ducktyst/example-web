@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'org.springframework.boot' version '2.6.4'
+}
+
+jar {
+    archivesBaseName = 'example-web'
+}
+
+group 'ru.ulstu'
+version '1.0-SNAPSHOT'
+
+repositories {
+    maven {
+        url "http://repo.athene.tech/repository/maven-central/"
+        allowInsecureProtocol(true)
+    }
+}
+
+dependencies {
+    ext {
+        versionSLF4J = '1.7.24'
+        versionJetty = '9.3.16.v20170120'
+        versionJackson = '2.9.4'
+        versionSwagger = '2.5.0'
+    }
+
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-jetty'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation'
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: versionSLF4J
+    implementation group: 'nz.net.ultraq.thymeleaf', name: 'thymeleaf-layout-dialect', version: '3.1.0'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test'
+}
+
+test {
+    useJUnitPlatform()
+}
